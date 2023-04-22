@@ -22,22 +22,24 @@ namespace WorkerShifter.Services
             if (_connection == null)
             {
                 string path = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "WShifter");
-                string dbPath = Path.Combine(path, "Global2.db3");
+                Directory.CreateDirectory(path);
+                string dbPath = Path.Combine(path, "Global.db3");
                 _connection = new SQLiteAsyncConnection(dbPath);
-                _connection.CreateTableAsync<WorkerModel>();
+                _connection.CreateTableAsync<WorkerModel>().Wait();
 
-                if (_connection.Table<WorkerModel>().CountAsync().Result == 0)
-                {
-                    WorkerModel defaultModel = new WorkerModel()
+                    if (_connection.Table<WorkerModel>().CountAsync().Result == 0)
                     {
-                        name = "Default",
-                        password = "Password",
-                        position = "Cashier",
-                        bossId = 0,
-                        deafultStore = 0
-                    };
-                    _connection.InsertAsync(defaultModel);
-                }
+                        WorkerModel defaultModel = new WorkerModel()
+                        {
+                            name = "Default",
+                            password = "Password",
+                            position = "Cashier",
+                            bossId = 0,
+                            deafultStore = 0
+                        };
+                        _connection.InsertAsync(defaultModel);
+                    }
+
             }
 
         }
