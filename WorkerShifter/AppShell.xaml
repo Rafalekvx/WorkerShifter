@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Shell
+    x:Class="WorkerShifter.AppShell"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:local="clr-namespace:WorkerShifter.Views"
+    xmlns:localStores="clr-namespace:WorkerShifter.Views.Stores"
+    xmlns:localWorkers="clr-namespace:WorkerShifter.Views.Workers"
+    xmlns:localShifts="clr-namespace:WorkerShifter.Views.Shifts">
+
+    <FlyoutItem Title="Main Page">
+        <ShellContent ContentTemplate="{DataTemplate local:MainPage}" />
+    </FlyoutItem>
+
+    <FlyoutItem Title="Shifts display">
+        <ShellContent ContentTemplate="{DataTemplate localShifts:ShiftPage}" />
+    </FlyoutItem>
+
+    <FlyoutItem Title="Workers display">
+        <ShellContent ContentTemplate="{DataTemplate localWorkers:WorkerPage}" />
+    </FlyoutItem>
+    
+    <FlyoutItem Title="Stores display">
+        <ShellContent ContentTemplate="{DataTemplate localStores:StoresPage}" />
+    </FlyoutItem>
+</Shell>

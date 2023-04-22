@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:viewmodel="clr-namespace:WorkerShifter.ViewModels.StoresViewModels"
+             xmlns:models="clr-namespace:WorkerShifter.Models"
+             x:DataType="viewmodel:StoresPageViewModel"
+             x:Class="WorkerShifter.Views.Stores.StoresPage"
+             Title="StoresPage">
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Text="Add" Command="{Binding AddStoreCommand}" />
+    </ContentPage.ToolbarItems>
+    <ContentPage.Content>
+        <RefreshView Command="{Binding GetStoreListCommand}" IsRefreshing="{Binding IsBusy, Mode=TwoWay}" HorizontalOptions="Center" >
+        <CollectionView x:Name="StoresListView"
+                        ItemsSource="{Binding Stores}"
+                        SelectionMode="None">
+            <CollectionView.ItemTemplate>
+                <DataTemplate>
+                    <HorizontalStackLayout Spacing="20" x:DataType="models:StoreModel">
+                            <Label Text="{Binding name}" LineBreakMode="NoWrap" FontSize="Large" HorizontalOptions="FillAndExpand"/>
+                            <Label Text="{Binding address}" LineBreakMode="NoWrap" FontSize="Large" HorizontalOptions="FillAndExpand"/>
+                        <HorizontalStackLayout.GestureRecognizers>
+                        <TapGestureRecognizer NumberOfTapsRequired="1"
+                                                  Command="{Binding Source={RelativeSource AncestorType={x:Type viewmodel:StoresPageViewModel}}, Path=ItemTapped}"
+                                                  CommandParameter="{Binding .}"/>
+                    </HorizontalStackLayout.GestureRecognizers>
+                    </HorizontalStackLayout>
+                </DataTemplate>     
+                
+            </CollectionView.ItemTemplate>
+           
+        </CollectionView>
+        
+        
+    </RefreshView>
+  </ContentPage.Content>
+</ContentPage>

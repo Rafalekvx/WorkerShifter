@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:viewmodels="clr-namespace:WorkerShifter.ViewModels.StoresViewModels"
+             x:DataType="viewmodels:UpdateStorePageViewModel"
+             x:Class="WorkerShifter.Views.Stores.UpdateStorePage"
+             Title="UpdateStorePage">
+    
+    <ContentPage.Content>
+        <StackLayout Spacing="10" Padding="15">
+            <Label Text="Name" FontSize="Medium" />
+            <Entry Text="{Binding Name, Mode=TwoWay}" FontSize="Medium" />
+            <Label Text="Address" FontSize="Medium" />
+            <Editor Text="{Binding Address, Mode=TwoWay}" AutoSize="TextChanges" FontSize="Medium" Margin="0" />
+            <StackLayout Orientation="Horizontal">
+                <Button Text="Cancel" Command="{Binding CancelUpdateStoreCommand}" HorizontalOptions="FillAndExpand"></Button>
+                <Button Text="Update" Command="{Binding UpdateStoreCommand}" HorizontalOptions="FillAndExpand"></Button>
+            </StackLayout>
+            <StackLayout Orientation="Horizontal">
+                <Button Text="Delete" Command="{Binding DeleteStoreCommand}" HorizontalOptions="FillAndExpand"></Button>
+            </StackLayout>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

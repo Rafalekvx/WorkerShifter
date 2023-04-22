@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:viewmodel="clr-namespace:WorkerShifter.ViewModels.WorkersViewModels"
+             x:DataType="viewmodel:WorkerDetailPageViewModel"
+             x:Class="WorkerShifter.Views.Workers.WorkerDetailPage"
+             Title="WorkerDetailPage">
+    
+    <StackLayout Spacing="20" Padding="15">
+        <Label Text="Name:" FontSize="Medium" />
+        <Label Text="{Binding Name}" FontSize="Small"/>
+        <Label Text="Password:" FontSize="Medium" />
+        <Label Text="{Binding Password}" FontSize="Small"/>
+        <Label Text="Position:" FontSize="Medium" />
+        <Label Text="{Binding Position}" FontSize="Small"/>
+        <Label Text="Boss:" FontSize="Medium" />
+        <Label Text="{Binding Boss}" FontSize="Small"/>
+        <Label Text="deafultStore:" FontSize="Medium" />
+        <Label Text="{Binding deafultStore}" FontSize="Small"/>
+        <StackLayout Orientation="Horizontal">
+            <Button Text="Update" Command="{Binding UpdateCommand}" HorizontalOptions="FillAndExpand"></Button>
+        </StackLayout>
+
+    </StackLayout>
+</ContentPage>

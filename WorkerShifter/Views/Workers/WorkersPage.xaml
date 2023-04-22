@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:viewmodel="clr-namespace:WorkerShifter.ViewModels.WorkersViewModels"
+             xmlns:models="clr-namespace:WorkerShifter.Models"
+             x:DataType="viewmodel:WorkerPageViewModel"
+             x:Class="WorkerShifter.Views.Workers.WorkerPage"
+             Title="WorkerPage"
+             >
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Text="Add" Command="{Binding AddWorkerCommand}" />
+    </ContentPage.ToolbarItems>
+    <ContentPage.Content>
+        <RefreshView Command="{Binding GetWorkerListCommand}" IsRefreshing="{Binding IsBusy, Mode=TwoWay}" HorizontalOptions="Center" >
+            <CollectionView x:Name="StoresListView"
+                        ItemsSource="{Binding Workers}"
+                        SelectionMode="None">
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <HorizontalStackLayout Spacing="20" x:DataType="models:WorkerModel">
+                            <Label Text="{Binding name}" LineBreakMode="NoWrap" FontSize="Large" HorizontalOptions="FillAndExpand"/>
+                            <Label Text="{Binding password}" LineBreakMode="NoWrap" FontSize="Large" HorizontalOptions="FillAndExpand"/>
+                            <Label Text="{Binding position}" LineBreakMode="NoWrap" FontSize="Large" HorizontalOptions="FillAndExpand"/>
+                            <Label Text="{Binding bossId}" LineBreakMode="NoWrap" FontSize="Large" HorizontalOptions="FillAndExpand"/>
+                            <Label Text="{Binding deafultStore}" LineBreakMode="NoWrap" FontSize="Large" HorizontalOptions="FillAndExpand"/>
+                            <HorizontalStackLayout.GestureRecognizers>
+                                <TapGestureRecognizer NumberOfTapsRequired="1"
+                                                  Command="{Binding Source={RelativeSource AncestorType={x:Type viewmodel:WorkerPageViewModel}}, Path=ItemTapped}"
+                                                  CommandParameter="{Binding .}"/>
+                            </HorizontalStackLayout.GestureRecognizers>
+                        </HorizontalStackLayout>
+                    </DataTemplate>
+
+                </CollectionView.ItemTemplate>
+
+            </CollectionView>
+
+
+        </RefreshView>
+    </ContentPage.Content>
+</ContentPage>
