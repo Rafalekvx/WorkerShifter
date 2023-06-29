@@ -21,10 +21,10 @@ namespace WorkerShifter.Services
         {
             if (_connection == null)
             {
-                string path = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "WShifter");
-                Directory.CreateDirectory(path);
-                string dbPath = Path.Combine(path, "Global.db3");
-                _connection = new SQLiteAsyncConnection(dbPath);
+                //string path = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "WShifter");
+                //Directory.CreateDirectory(path);
+                //string dbPath = Path.Combine(path, "Global.db3");
+                _connection = new SQLiteAsyncConnection(Constants.DatabasePath);
                 _connection.CreateTableAsync<StoreModel>().Wait();
 
                     if (_connection.Table<StoreModel>().CountAsync().Result == 0)
@@ -63,7 +63,10 @@ namespace WorkerShifter.Services
         public async Task<StoreModel> GetOneById(int id)
         {
             List<StoreModel> storeModels = await _connection.Table<StoreModel>().Where(x=> x.id == id).ToListAsync();
-
+            if(storeModels.Count == 0)
+            {
+                return null;
+            }
             return storeModels[0];
         }
 

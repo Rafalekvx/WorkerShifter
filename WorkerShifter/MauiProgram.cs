@@ -1,10 +1,17 @@
-﻿using Microsoft.Extensions.Logging;
+﻿using CommunityToolkit.Maui;
+using Microsoft.Extensions.Logging;
+using Syncfusion.Maui.Core.Hosting;
 using WorkerShifter.Models;
 using WorkerShifter.Services;
 using WorkerShifter.ViewModels;
+using WorkerShifter.ViewModels.OverviewViewModels;
+using WorkerShifter.ViewModels.PositionViewModels;
+using WorkerShifter.ViewModels.ShiftsViewModels;
 using WorkerShifter.ViewModels.StoresViewModels;
 using WorkerShifter.ViewModels.WorkersViewModels;
 using WorkerShifter.Views;
+using WorkerShifter.Views.OverviewPage;
+using WorkerShifter.Views.Position;
 using WorkerShifter.Views.Shifts;
 using WorkerShifter.Views.Stores;
 using WorkerShifter.Views.Workers;
@@ -18,7 +25,9 @@ public static class MauiProgram
 		var builder = MauiApp.CreateBuilder();
 		builder
 			.UseMauiApp<App>()
-			.ConfigureFonts(fonts =>
+            .ConfigureSyncfusionCore()
+            .UseMauiCommunityToolkit()
+            .ConfigureFonts(fonts =>
 			{
 				fonts.AddFont("OpenSans-Regular.ttf", "OpenSansRegular");
 				fonts.AddFont("OpenSans-Semibold.ttf", "OpenSansSemibold");
@@ -33,7 +42,8 @@ public static class MauiProgram
         //services
         builder.Services.AddSingleton<IStoreManageServices<StoreModel>, StoreServices>();
         builder.Services.AddSingleton<IStoreManageServices<WorkerModel>, WorkerServices>();
-
+        builder.Services.AddSingleton<IStoreManageServices<PositionModel>, PositionService>();
+        builder.Services.AddSingleton<IStoreManageServices<ShiftModel>, ShiftManageServices>();
 
         //viewmodels
         builder.Services.AddTransient<LoginPageViewModel>();
@@ -50,6 +60,14 @@ public static class MauiProgram
         builder.Services.AddTransient<NewStorePageViewModel>();
         builder.Services.AddTransient<StoreDetailPageViewModel>();
         builder.Services.AddTransient<UpdateStorePageViewModel>();
+        //position
+        builder.Services.AddTransient<PositionPageViewModel>();
+        builder.Services.AddTransient<PositionCreatePageViewModel>();
+        builder.Services.AddTransient<PositionDetailPageViewModel>();
+        builder.Services.AddTransient<PositionUpdatePageViewModel>();
+        //overview
+        builder.Services.AddTransient<OverviewPageViewModel>();
+
 
         //views
         builder.Services.AddTransient<LoginPage>();
@@ -66,6 +84,16 @@ public static class MauiProgram
         builder.Services.AddTransient<WorkerCreatePage>();
         builder.Services.AddTransient<WorkerDetailPage>();
         builder.Services.AddTransient<WorkerUpdatePage>();
+        //position
+        builder.Services.AddTransient<PositionPage>();
+        builder.Services.AddTransient<PositionCreatePage>();
+        builder.Services.AddTransient<PositionDetailPage>();
+        builder.Services.AddTransient<PositionUpdatePage>();
+
+        //overview
+        builder.Services.AddTransient<OverviewPage>();
+
+
         return builder.Build();
 	}
 }

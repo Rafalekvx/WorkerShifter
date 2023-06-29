@@ -14,17 +14,16 @@ namespace WorkerShifter.ViewModels.WorkersViewModels
 {
     public partial class WorkerPageViewModel : WorkerBaseViewModel
     {
-        private WorkerModel _selectedWorkerModel;
-        public ObservableCollection<WorkerModel> Workers { get; }
-        public Command<WorkerModel> ItemTapped { get; }
+        private WorkerModelDto _selectedWorkerModel;
+        public ObservableCollection<WorkerModelDto> Workers { get; }
+        public Command<WorkerModelDto> ItemTapped { get; }
 
         public WorkerPageViewModel()
         {
-            Workers = new ObservableCollection<WorkerModel>();
+            Workers = new ObservableCollection<WorkerModelDto>();
 
-            ItemTapped = new Command<WorkerModel>(OnItemSelected);
+            ItemTapped = new Command<WorkerModelDto>(OnItemSelected);
 
-            GetWorkerList();
         }
 
 
@@ -39,7 +38,35 @@ namespace WorkerShifter.ViewModels.WorkersViewModels
 
                 foreach (var item in list)
                 {
-                    Workers.Add(item);
+                    WorkerModel boss = new WorkerModel() { name = "brak"};
+                    if (item.bossId != 0)
+                    {
+                        boss = await _workerManageServices.GetOneById(int.Parse(item.bossId.ToString()));
+                    }
+                    PositionModel positionId = new PositionModel() { Position = "Brak"};
+                    if (item.position != 0)
+                    {
+                        positionId = await _positionManageServices.GetOneById(item.position);
+                    }
+                    StoreModel storeName = new StoreModel() { name = "Brak", address = "Brak"};
+                    if(item.deafultStore != 0)
+                    {
+                        StoreModel storeNameCheck = await _storeManageServices.GetOneById(int.Parse(item.deafultStore.ToString()));
+
+                        if(storeNameCheck != null) 
+                        {
+                            storeName = storeNameCheck;
+                        }
+                    }
+
+                    string storeFullName = $"{storeName.name} , {storeName.address}";
+                    
+                    Workers.Add(new WorkerModelDto() { id =item.id,
+                        name = item.name, password = 
+                        item.password, 
+                        boss = boss.name, 
+                        position=positionId.Position, 
+                        deafultStoreName = storeFullName});
                 }
             }
 
@@ -50,7 +77,7 @@ namespace WorkerShifter.ViewModels.WorkersViewModels
             _selectedWorkerModel = null;
         }
 
-        public WorkerModel SelectedWorkerModel
+        public WorkerModelDto SelectedWorkerModel
         {
             get { return _selectedWorkerModel; }
             set
@@ -66,7 +93,7 @@ namespace WorkerShifter.ViewModels.WorkersViewModels
             await Shell.Current.GoToAsync(nameof(WorkerCreatePage));
         }
 
-        async void OnItemSelected(WorkerModel model)
+        async void OnItemSelected(WorkerModelDto model)
         {
             if (model == null)
             {

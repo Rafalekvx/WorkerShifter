@@ -17,12 +17,10 @@
                         SelectionMode="None">
                 <CollectionView.ItemTemplate>
                     <DataTemplate>
-                        <HorizontalStackLayout Spacing="20" x:DataType="models:WorkerModel">
+                        <HorizontalStackLayout Spacing="20" x:DataType="models:WorkerModelDto">
                             <Label Text="{Binding name}" LineBreakMode="NoWrap" FontSize="Large" HorizontalOptions="FillAndExpand"/>
-                            <Label Text="{Binding password}" LineBreakMode="NoWrap" FontSize="Large" HorizontalOptions="FillAndExpand"/>
                             <Label Text="{Binding position}" LineBreakMode="NoWrap" FontSize="Large" HorizontalOptions="FillAndExpand"/>
-                            <Label Text="{Binding bossId}" LineBreakMode="NoWrap" FontSize="Large" HorizontalOptions="FillAndExpand"/>
-                            <Label Text="{Binding deafultStore}" LineBreakMode="NoWrap" FontSize="Large" HorizontalOptions="FillAndExpand"/>
+                            <Label Text="{Binding deafultStoreName}" LineBreakMode="NoWrap" FontSize="Large" HorizontalOptions="FillAndExpand"/>
                             <HorizontalStackLayout.GestureRecognizers>
                                 <TapGestureRecognizer NumberOfTapsRequired="1"
                                                   Command="{Binding Source={RelativeSource AncestorType={x:Type viewmodel:WorkerPageViewModel}}, Path=ItemTapped}"

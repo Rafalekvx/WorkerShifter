@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:viewmodel="clr-namespace:WorkerShifter.ViewModels.PositionViewModels"
+             x:Class="WorkerShifter.Views.Position.PositionUpdatePage"
+             x:DataType="viewmodel:PositionUpdatePageViewModel"
+             Title="PositionUpdatePage">
+    <ContentPage.Content>
+        <StackLayout Spacing="3" Padding="15">
+            <Label Text="Position Name" FontSize="Medium" />
+            <Entry Text="{Binding Position, Mode=TwoWay}" FontSize="Medium" />
+            <Label Text="Is Boss" FontSize="Medium" />
+            <CheckBox IsChecked="{Binding IsBoss, Mode=TwoWay}" Margin="0" />
+            <StackLayout Orientation="Horizontal">
+                <Button Text="Cancel" Command="{Binding CancelUpdatePositionCommand}" HorizontalOptions="FillAndExpand"></Button>
+                <Button Text="Save" Command="{Binding UpdatePositionCommand}" HorizontalOptions="FillAndExpand"></Button>
+            </StackLayout>
+            <StackLayout>
+                <Button Text="Delete" Command="{Binding DeletePositionCommand}" HorizontalOptions="FillAndExpand"></Button>
+            </StackLayout>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

@@ -21,10 +21,10 @@ namespace WorkerShifter.Services
         {
             if (_connection == null)
             {
-                string path = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "WShifter");
-                Directory.CreateDirectory(path);
-                string dbPath = Path.Combine(path, "Global.db3");
-                _connection = new SQLiteAsyncConnection(dbPath);
+                //string path = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "WShifter");
+                //Directory.CreateDirectory(path);
+                //string dbPath = Path.Combine(path, "Global.db3");
+                _connection = new SQLiteAsyncConnection(Constants.DatabasePath);
                 _connection.CreateTableAsync<WorkerModel>().Wait();
 
                     if (_connection.Table<WorkerModel>().CountAsync().Result == 0)
@@ -33,7 +33,7 @@ namespace WorkerShifter.Services
                         {
                             name = "Default",
                             password = "Password",
-                            position = "Cashier",
+                            position = 0,
                             bossId = 0,
                             deafultStore = 0
                         };

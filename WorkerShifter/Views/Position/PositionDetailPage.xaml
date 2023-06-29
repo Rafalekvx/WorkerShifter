@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:viewmodels="clr-namespace:WorkerShifter.ViewModels.PositionViewModels"
+             x:DataType="viewmodels:PositionDetailPageViewModel"
+             x:Class="WorkerShifter.Views.Position.PositionDetailPage"
+             Title="PositionDetailPage">
+    <StackLayout Spacing="20" Padding="15">
+        <Label Text="Position:" FontSize="Medium" />
+        <Label Text="{Binding Position}" FontSize="Small"/>
+        <Label Text="Is Boss:" FontSize="Medium" />
+        <Label Text="{Binding IsBoss}" FontSize="Small"/>
+
+        <StackLayout Orientation="Horizontal">
+            <Button Text="Update" Command="{Binding UpdateCommand}" HorizontalOptions="FillAndExpand"></Button>
+        </StackLayout>
+
+    </StackLayout>
+</ContentPage>

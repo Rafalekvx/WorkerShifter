@@ -1,4 +1,6 @@
 ﻿using WorkerShifter.Views;
+using WorkerShifter.Views.Position;
+using WorkerShifter.Views.Shifts;
 using WorkerShifter.Views.Stores;
 using WorkerShifter.Views.Workers;
 
@@ -20,6 +22,13 @@ public partial class AppShell : Shell
         Routing.RegisterRoute(nameof(WorkerDetailPage), typeof(WorkerDetailPage));
         Routing.RegisterRoute(nameof(WorkerUpdatePage), typeof(WorkerUpdatePage));
 
+        //position
+        Routing.RegisterRoute(nameof(PositionCreatePage), typeof(PositionCreatePage));
+        Routing.RegisterRoute(nameof(PositionDetailPage), typeof(PositionDetailPage));
+        Routing.RegisterRoute(nameof(PositionUpdatePage), typeof(PositionUpdatePage));
+
+        //Shifts
+        Routing.RegisterRoute(nameof(ShiftDetailPage), typeof(ShiftDetailPage));
 
     }
 }

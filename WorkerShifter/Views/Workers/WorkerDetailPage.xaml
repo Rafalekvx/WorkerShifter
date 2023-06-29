@@ -12,11 +12,11 @@
         <Label Text="Password:" FontSize="Medium" />
         <Label Text="{Binding Password}" FontSize="Small"/>
         <Label Text="Position:" FontSize="Medium" />
-        <Label Text="{Binding Position}" FontSize="Small"/>
+        <Label Text="{Binding PositionView}" FontSize="Small"/>
         <Label Text="Boss:" FontSize="Medium" />
-        <Label Text="{Binding Boss}" FontSize="Small"/>
+        <Label Text="{Binding BossView}" FontSize="Small"/>
         <Label Text="deafultStore:" FontSize="Medium" />
-        <Label Text="{Binding deafultStore}" FontSize="Small"/>
+        <Label Text="{Binding DeafultStoreView}" FontSize="Small"/>
         <StackLayout Orientation="Horizontal">
             <Button Text="Update" Command="{Binding UpdateCommand}" HorizontalOptions="FillAndExpand"></Button>
         </StackLayout>

@@ -12,11 +12,11 @@
             <Label Text="Password" FontSize="Medium" />
             <Editor Text="{Binding Password, Mode=TwoWay}" AutoSize="TextChanges" FontSize="Medium" Margin="0" />
             <Label Text="Position" FontSize="Medium" />
-            <Editor Text="{Binding Position, Mode=TwoWay}" AutoSize="TextChanges" FontSize="Medium" Margin="0" />
+            <Picker ItemsSource="{Binding PositionPicker}" ItemDisplayBinding="{Binding Text}" SelectedItem="{Binding SelectedPosition}" HorizontalOptions="FillAndExpand"/>
             <Label Text="Boss" FontSize="Medium" />
-            <Editor Text="{Binding Boss, Mode=TwoWay}" AutoSize="TextChanges" FontSize="Medium" Margin="0" />
+            <Picker ItemsSource="{Binding  BossPicker}" ItemDisplayBinding="{Binding Text}" SelectedItem="{Binding SelectedBoss}" HorizontalOptions="FillAndExpand" />
             <Label Text="DeafultStore" FontSize="Medium" />
-            <Editor Text="{Binding DeafultStore, Mode=TwoWay}" AutoSize="TextChanges" FontSize="Medium" Margin="0" />
+            <Picker ItemsSource="{Binding  StoresPicker}" ItemDisplayBinding="{Binding Text}" SelectedItem="{Binding SelectedStore}" HorizontalOptions="FillAndExpand" />
             <StackLayout Orientation="Horizontal">
                 <Button Text="Cancel" Command="{Binding CancelUpdateWorkerCommand}" HorizontalOptions="FillAndExpand"></Button>
                 <Button Text="Update" Command="{Binding UpdateWorkerCommand}" HorizontalOptions="FillAndExpand"></Button>

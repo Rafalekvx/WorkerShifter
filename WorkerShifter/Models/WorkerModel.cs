@@ -13,7 +13,7 @@ namespace WorkerShifter.Models
         public int id { get; set; }
         public string name { get; set; }
         public string password { get; set; }
-        public string position { get; set; }
+        public int position { get; set; }
         public int? bossId { get; set; }
         public int? deafultStore { get; set; }
     }

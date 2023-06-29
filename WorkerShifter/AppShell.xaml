@@ -6,10 +6,16 @@
     xmlns:local="clr-namespace:WorkerShifter.Views"
     xmlns:localStores="clr-namespace:WorkerShifter.Views.Stores"
     xmlns:localWorkers="clr-namespace:WorkerShifter.Views.Workers"
-    xmlns:localShifts="clr-namespace:WorkerShifter.Views.Shifts">
+    xmlns:localShifts="clr-namespace:WorkerShifter.Views.Shifts"
+    xmlns:localPosition="clr-namespace:WorkerShifter.Views.Position"
+    xmlns:localOverview="clr-namespace:WorkerShifter.Views.OverviewPage">
 
     <FlyoutItem Title="Main Page">
         <ShellContent ContentTemplate="{DataTemplate local:MainPage}" />
+    </FlyoutItem>
+    
+    <FlyoutItem Title="Overview">
+        <ShellContent ContentTemplate="{DataTemplate localOverview:OverviewPage}" />
     </FlyoutItem>
 
     <FlyoutItem Title="Shifts display">
@@ -19,8 +25,12 @@
     <FlyoutItem Title="Workers display">
         <ShellContent ContentTemplate="{DataTemplate localWorkers:WorkerPage}" />
     </FlyoutItem>
-    
+
     <FlyoutItem Title="Stores display">
         <ShellContent ContentTemplate="{DataTemplate localStores:StoresPage}" />
+    </FlyoutItem>
+    
+    <FlyoutItem Title="Position display">
+    <ShellContent ContentTemplate="{DataTemplate localPosition:PositionPage}" />
     </FlyoutItem>
 </Shell>

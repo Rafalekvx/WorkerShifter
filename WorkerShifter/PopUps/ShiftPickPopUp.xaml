@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<toolkit:Popup xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
+             x:Class="WorkerShifter.PopUps.ShiftPickPopUp"
+               CanBeDismissedByTappingOutsideOfPopup="False"
+             >
+    <Frame>
+        <FlexLayout Direction="Column" JustifyContent="SpaceEvenly">
+            <VerticalStackLayout Spacing="5">
+                <Label Text="text1" HorizontalOptions="Center"/>
+                <TimePicker HorizontalOptions="Center"/>
+            </VerticalStackLayout>
+            <VerticalStackLayout Spacing="5">
+                <Label Text="text2" HorizontalOptions="Center" />
+                <TimePicker HorizontalOptions="Center"/>
+            </VerticalStackLayout>
+
+            <Button Text="Add" HorizontalOptions="FillAndExpand"/>
+            <Button Text="Cancel" HorizontalOptions="FillAndExpand"/>
+        </FlexLayout>
+    </Frame>
+</toolkit:Popup>

@@ -29,11 +29,19 @@ namespace WorkerShifter.ViewModels.WorkersViewModels
         }
 
         [ObservableProperty]
-        private string _position;
-        public string position
+        private int _position;
+        public int position
         {
             get { return Position; }
             set { Position = value; }
+        }
+
+        [ObservableProperty]
+        private string _positionView;
+        public string positionView
+        {
+            get { return PositionView; }
+            set { PositionView = value; }
         }
 
         [ObservableProperty]
@@ -45,6 +53,14 @@ namespace WorkerShifter.ViewModels.WorkersViewModels
         }
 
         [ObservableProperty]
+        private string _bossView;
+        public string bossView
+        {
+            get { return BossView; }
+            set { BossView = value; }
+        }
+
+        [ObservableProperty]
         private int? _deafultStore;
         public int? deafultStore
         {
@@ -52,14 +68,22 @@ namespace WorkerShifter.ViewModels.WorkersViewModels
             set { DeafultStore = value; }
         }
 
+        [ObservableProperty]
+        private string _deafultStoreView;
+        public string deafultStoreView
+        {
+            get { return DeafultStoreView; }
+            set { DeafultStoreView = value; }
+        }
+
         public int Id { get; set; }
 
         public WorkerBaseViewModel()
         {
-
         }
 
-     
+        public IStoreManageServices<StoreModel> _storeManageServices => DependencyService.Get<IStoreManageServices<StoreModel>>();
+        public IStoreManageServices<PositionModel> _positionManageServices => DependencyService.Get<IStoreManageServices<PositionModel>>();
         public IStoreManageServices<WorkerModel> _workerManageServices => DependencyService.Get<IStoreManageServices<WorkerModel>>();
     }
 }
