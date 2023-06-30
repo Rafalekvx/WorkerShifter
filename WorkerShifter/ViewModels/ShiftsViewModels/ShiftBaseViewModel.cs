@@ -61,6 +61,9 @@ namespace WorkerShifter.ViewModels.ShiftsViewModels
         }
 
 
+        public IStoreManageServices<ShiftModel> _shiftManageServices => DependencyService.Get<IStoreManageServices<ShiftModel>>();
+        public IStoreManageServices<StoreModel> _storeManageServices => DependencyService.Get<IStoreManageServices<StoreModel>>();
+        public IStoreManageServices<WorkerModel> _workerManageServices => DependencyService.Get<IStoreManageServices<WorkerModel>>();
 
 
     }

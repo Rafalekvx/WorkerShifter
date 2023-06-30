@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:viewmodel="clr-namespace:WorkerShifter.ViewModels.ShiftsViewModels"
+             xmlns:models="clr-namespace:WorkerShifter.Models"
+             x:DataType="viewmodel:ShiftDetailsPageViewModel"
+             x:Class="WorkerShifter.Views.Shifts.ShiftDetailsPage"
+             Title="ShiftDetailsPage">
+    <ContentPage.Content>
+        <RefreshView Command="{Binding GetShiftsCommand}" IsRefreshing="{Binding IsBusy, Mode=TwoWay}" HorizontalOptions="Center" >
+            <CollectionView x:Name="StoresListView"
+                        ItemsSource="{Binding Shifts}"
+                        SelectionMode="None">
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <HorizontalStackLayout Spacing="20" x:DataType="models:ShiftModelDto">
+                            <Label Text="{Binding Id}" LineBreakMode="NoWrap" FontSize="Large" HorizontalOptions="FillAndExpand"/>
+                            <Label Text="{Binding date}" LineBreakMode="NoWrap" FontSize="Large" HorizontalOptions="FillAndExpand"/>
+                            <Label Text="{Binding startTime}" LineBreakMode="NoWrap" FontSize="Large" HorizontalOptions="FillAndExpand"/>
+                            <Label Text="{Binding endTime}" LineBreakMode="NoWrap" FontSize="Large" HorizontalOptions="FillAndExpand"/>
+                            <Label Text="{Binding workerName}" LineBreakMode="NoWrap" FontSize="Large" HorizontalOptions="FillAndExpand"/>
+                            <Label Text="{Binding Store}" LineBreakMode="NoWrap" FontSize="Large" HorizontalOptions="FillAndExpand"/>
+                            <HorizontalStackLayout.GestureRecognizers>
+                                <TapGestureRecognizer NumberOfTapsRequired="1"
+                                                  Command="{Binding Source={RelativeSource AncestorType={x:Type viewmodel:ShiftDetailsPageViewModel}}, Path=ItemTapped}"
+                                                  CommandParameter="{Binding .}"/>
+                            </HorizontalStackLayout.GestureRecognizers>
+                        </HorizontalStackLayout>
+                    </DataTemplate>
+
+                </CollectionView.ItemTemplate>
+
+            </CollectionView>
+
+
+        </RefreshView>
+    </ContentPage.Content>
+</ContentPage>

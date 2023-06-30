@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:viewmodel="clr-namespace:WorkerShifter.ViewModels.ShiftsViewModels"
+             x:DataType="viewmodel:ShiftUpdatePageViewModel"
+             x:Class="WorkerShifter.Views.Shifts.ShiftUpdatePage"
+             Title="ShiftUpdatePage">
+
+    <ContentPage.Content>
+        <StackLayout Spacing="3" Padding="15">
+            <VerticalStackLayout HorizontalOptions="Center" Spacing="15">
+                <Label Text="Editing ID:" HorizontalOptions="Center"/>
+                <Label Text="{Binding Id}" HorizontalOptions="Center"/>
+            </VerticalStackLayout>
+            <VerticalStackLayout HorizontalOptions="Center" Spacing="15">
+                <Label Text="Worker" HorizontalOptions="Center"/>
+                <Picker WidthRequest="1000" VerticalOptions="FillAndExpand" ItemsSource="{Binding  WorkerPicker}" ItemDisplayBinding="{Binding Text}" SelectedItem="{Binding SelectedWorker}"/>
+            </VerticalStackLayout>
+            <VerticalStackLayout HorizontalOptions="Center" Spacing="15">
+                <Label Text="Shop" HorizontalOptions="Center"/>
+                <Picker WidthRequest="1000" VerticalOptions="FillAndExpand" ItemsSource="{Binding  StoresPicker}" ItemDisplayBinding="{Binding Text}" SelectedItem="{Binding SelectedStore}"/>
+            </VerticalStackLayout>
+
+
+            <HorizontalStackLayout HorizontalOptions="Center" Spacing="15">
+                <VerticalStackLayout  HorizontalOptions="Center">
+                    <Label Text="Start" HorizontalOptions="Center"/>
+                    <TimePicker Format="HH" Time="{Binding StartTime,Mode=TwoWay}"/>
+                </VerticalStackLayout>
+
+                <VerticalStackLayout HorizontalOptions="Center">
+                    <Label Text="End" HorizontalOptions="Center"/>
+                    <TimePicker Format="HH" Time="{Binding EndTime,Mode=TwoWay}" />
+                </VerticalStackLayout>
+
+
+            </HorizontalStackLayout>
+            <Button Text="Update shift" Command="{Binding UpdateShiftButtonCommand}" HorizontalOptions="FillAndExpand" Margin="100"></Button>
+            <Button Text="Delete shift" Command="{Binding DeleteShiftButtonCommand}" HorizontalOptions="FillAndExpand"></Button>
+
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

@@ -48,8 +48,12 @@ public static class MauiProgram
         //viewmodels
         builder.Services.AddTransient<LoginPageViewModel>();
         builder.Services.AddTransient<MainPageViewModel>();
+        builder.Services.AddTransient<OverviewPageViewModel>();
         //shifts
         builder.Services.AddTransient<ShiftPageViewModel>();
+        builder.Services.AddTransient<ShiftCreatePageViewModel>();
+        builder.Services.AddTransient<ShiftDetailsPageViewModel>();
+        builder.Services.AddTransient<ShiftUpdatePageViewModel>();
         //workers
         builder.Services.AddTransient<WorkerPageViewModel>();
         builder.Services.AddTransient<WorkerCreatePageViewModel>();
@@ -65,15 +69,18 @@ public static class MauiProgram
         builder.Services.AddTransient<PositionCreatePageViewModel>();
         builder.Services.AddTransient<PositionDetailPageViewModel>();
         builder.Services.AddTransient<PositionUpdatePageViewModel>();
-        //overview
-        builder.Services.AddTransient<OverviewPageViewModel>();
 
 
         //views
         builder.Services.AddTransient<LoginPage>();
         builder.Services.AddTransient<MainPage>();
         builder.Services.AddTransient<ShiftPage>();
-
+        builder.Services.AddTransient<OverviewPage>();
+        //shifts
+        builder.Services.AddTransient<ShiftPage>();
+        builder.Services.AddTransient<ShiftCreatePage>();
+        builder.Services.AddTransient<ShiftDetailsPage>();
+        builder.Services.AddTransient<ShiftUpdatePage>();
         //stores
         builder.Services.AddTransient<StoresPage>();
         builder.Services.AddTransient<NewStorePage>();
@@ -90,8 +97,7 @@ public static class MauiProgram
         builder.Services.AddTransient<PositionDetailPage>();
         builder.Services.AddTransient<PositionUpdatePage>();
 
-        //overview
-        builder.Services.AddTransient<OverviewPage>();
+      
 
 
         return builder.Build();

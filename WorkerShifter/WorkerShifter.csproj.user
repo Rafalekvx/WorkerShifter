@@ -9,6 +9,9 @@
     <_LastSelectedProfileId>MSIX-win10-x641.pubxml</_LastSelectedProfileId>
     <PackageOptionalProjectsInIdeBuilds>False</PackageOptionalProjectsInIdeBuilds>
   </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Debug|net7.0-android|AnyCPU'">
+    <DebuggerFlavor>ProjectDebugger</DebuggerFlavor>
+  </PropertyGroup>
   <ItemGroup>
     <MauiXaml Update="PopUps\ShiftPickPopUp.xaml">
       <SubType>Designer</SubType>
@@ -34,7 +37,13 @@
     <MauiXaml Update="Views\Position\PositionUpdatePage.xaml">
       <SubType>Designer</SubType>
     </MauiXaml>
-    <MauiXaml Update="Views\Shifts\ShiftDetailPage.xaml">
+    <MauiXaml Update="Views\Shifts\ShiftCreatePage.xaml">
+      <SubType>Designer</SubType>
+    </MauiXaml>
+    <MauiXaml Update="Views\Shifts\ShiftDetailsPage.xaml">
+      <SubType>Designer</SubType>
+    </MauiXaml>
+    <MauiXaml Update="Views\Shifts\ShiftUpdatePage.xaml">
       <SubType>Designer</SubType>
     </MauiXaml>
     <MauiXaml Update="Views\Stores\NewStorePage.xaml">

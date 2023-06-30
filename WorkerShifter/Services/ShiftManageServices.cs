@@ -54,7 +54,7 @@ namespace WorkerShifter.Services
                 return helperList[0];
             }
 
-            ShiftModel NoExistShift = new ShiftModel() { Id = 1, date = DateTime.Parse("2001-10-0400:00"), startTime = DateTime.Parse("2001-10-0400:00"), endTime = DateTime.Parse("2001-10-0500:00"), storeId = 1, personId = 1 };
+            ShiftModel NoExistShift = new ShiftModel() { Id = 0, date = DateTime.Parse("2001-10-04T00:00"), startTime = DateTime.Parse("2001-10-04T00:00"), endTime = DateTime.Parse("2001-10-05T00:00"), storeId = 1, personId = 1 };
 
             return NoExistShift;
         }

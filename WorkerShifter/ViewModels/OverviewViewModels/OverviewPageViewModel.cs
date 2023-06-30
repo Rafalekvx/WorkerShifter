@@ -51,7 +51,7 @@ namespace WorkerShifter.ViewModels.OverviewViewModels
                     Shifts.Add(new ShiftModelDto()
                     {
                         Id = item.Id,
-                        date = item.date.ToString("dd/mm/yyyy"),
+                        date = item.date.ToString("dd/MM/yyyy"),
                         endTime = item.endTime.ToString("HH:mm"),
                         startTime = item.startTime.ToString("HH:mm"),
                         Store = storeName.name,

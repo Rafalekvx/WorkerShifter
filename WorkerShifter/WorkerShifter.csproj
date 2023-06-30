@@ -76,6 +76,9 @@
 	</ItemGroup>
 
 	<ItemGroup>
+	  <Compile Update="Views\Shifts\ShiftCreatePage.xaml.cs">
+	    <DependentUpon>ShiftCreatePage.xaml</DependentUpon>
+	  </Compile>
 	  <Compile Update="Views\Workers\WorkersPage.xaml.cs">
 	    <DependentUpon>WorkersPage.xaml</DependentUpon>
 	  </Compile>
@@ -103,7 +106,13 @@
 	  <MauiXaml Update="Views\Position\PositionUpdatePage.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
-	  <MauiXaml Update="Views\Shifts\ShiftDetailPage.xaml">
+	  <MauiXaml Update="Views\Shifts\ShiftCreatePage.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="Views\Shifts\ShiftDetailsPage.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="Views\Shifts\ShiftUpdatePage.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 	  <MauiXaml Update="Views\Stores\NewStorePage.xaml">

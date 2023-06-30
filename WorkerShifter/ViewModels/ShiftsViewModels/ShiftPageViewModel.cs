@@ -27,7 +27,7 @@ namespace WorkerShifter.ViewModels.ShiftsViewModels
         {
             string date = dateTime.ToString("MM/dd/yyyy");
 
-            await Shell.Current.GoToAsync($"{nameof(ShiftDetailPage)}?{nameof(ShiftDetailPageViewModel.SelectDate)}={date}");
+            await Shell.Current.GoToAsync($"{nameof(ShiftCreatePage)}?{nameof(ShiftCreatePageViewModel.SelectDate)}={date}");
 
         }
 
