@@ -15,14 +15,19 @@ namespace WorkerShifter.Services
 
         public async void Init()
         {
-           // string helperPath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) + "WShifter");
+            // string helperPath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) + "WShifter");
             //string dbPath = Path.Combine(helperPath, "Global.db3");
+            if (!(Path.Exists(Constants.DatabasePath)))
+            {
+                Directory.CreateDirectory(Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "WShifter"));
+            }
+
             _connection = new SQLiteAsyncConnection(Constants.DatabasePath);
             _connection.CreateTableAsync<PositionModel>().Wait();
-            if (_connection.Table<StoreModel>().CountAsync().Result == 0)
+            if (_connection.Table<PositionModel>().CountAsync().Result == 0)
             {
-                _connection.InsertAsync(new PositionModel() { Position = "Boss", IsBoss = true });
-                _connection.InsertAsync(new PositionModel() { Position = "Cashier", IsBoss = false});
+                _connection.InsertAsync(new PositionModel() { Id =1 , Position = "Boss", IsBoss = true });
+                _connection.InsertAsync(new PositionModel() { Id =2 , Position = "Cashier", IsBoss = false});
             }
         }
 

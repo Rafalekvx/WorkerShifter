@@ -161,7 +161,7 @@ namespace WorkerShifter.ViewModels.ShiftsViewModels
         [RelayCommand]
         private async void GoToDetails()
         {
-            string date = selectDate.ToString("MM/dd/yyyy");
+            string date = selectDate.ToString("dd/MM/yyyy");
             await Shell.Current.GoToAsync($"{nameof(ShiftDetailsPage)}?{nameof(ShiftDetailsPageViewModel.SelectDate)}={date}");
         }
 

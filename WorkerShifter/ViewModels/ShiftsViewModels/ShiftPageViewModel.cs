@@ -25,7 +25,7 @@ namespace WorkerShifter.ViewModels.ShiftsViewModels
         [RelayCommand]
         public async void OnItemSelected(DateTime dateTime)
         {
-            string date = dateTime.ToString("MM/dd/yyyy");
+            string date = dateTime.ToString("dd/MM/yyyy");
 
             await Shell.Current.GoToAsync($"{nameof(ShiftCreatePage)}?{nameof(ShiftCreatePageViewModel.SelectDate)}={date}");
 

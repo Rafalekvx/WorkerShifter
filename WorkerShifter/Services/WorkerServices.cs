@@ -33,7 +33,7 @@ namespace WorkerShifter.Services
                         {
                             name = "Default",
                             password = "Password",
-                            position = 0,
+                            position = 1,
                             bossId = 0,
                             deafultStore = 0
                         };
